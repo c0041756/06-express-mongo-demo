@@ -11,6 +11,8 @@ module.exports = app => {
     app
       .set("myDb")
       .collection("filmsCollection")
+      // .find({filmCertificate:"PG"})Could'nt be done as it was not in one request, but multiple. Solution was to add it in the already present find.
+      // .find({filmCertificate:"PG", filmPrice:{$gt:"6.00"}})
       .find({})
       .toArray(function(err, docs) {
         if (err) {
